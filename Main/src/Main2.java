@@ -7,13 +7,13 @@ public class Main2 {
     }
 }
 
-interface moveable {
+interface Moveable {
     void start();
 
     void stop();
 }
 
-abstract class Animal implements moveable {
+abstract class Animal {
     private String type;
 
     public Animal() {
@@ -29,8 +29,8 @@ abstract class Animal implements moveable {
     }
 }
 
-class Cat extends Animal {
-    private String name;
+class Cat extends Animal implements Moveable {
+    private final String name;
 
     public Cat(String name) {
         this.name = name;
@@ -38,7 +38,7 @@ class Cat extends Animal {
 
     @Override
     public void start() {
-        System.out.println(this.getClass().toString() + " starts!");
+        System.out.println(this.getClass().getName() + " starts!");
     }
 
     @Override
@@ -48,11 +48,11 @@ class Cat extends Animal {
 
     @Override
     public String getType() {
-        return this.getClass().toString();
+        return this.getClass().getName();
     }
 
     @Override
     public void stop() {
-        System.out.println(this.getClass().toString() + " stopped!");
+        System.out.println(this.getClass().getName() + " stopped!");
     }
 }

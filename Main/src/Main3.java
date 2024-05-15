@@ -23,7 +23,7 @@ abstract class Person {
     }
 
     public String toString() {
-        return this.getClass() + ": " + this.firstName + " " + this.lastName + " " + this.birthdayYear;
+        return this.getClass().getName() + ": " + this.firstName + " " + this.lastName + " " + this.birthdayYear;
     }
 }
 
@@ -68,6 +68,6 @@ class Manager extends Employee {
 
     @Override
     public String toString() {
-        return this.getClass().toString() + " with lastName " + this.lastName + " and age " + super.getAge() + " has salary " + this.getSalary();
+        return this.getClass().getName() + " with lastName " + this.lastName + " and age " + super.getAge() + " has salary " + this.getSalary();
     }
 }

@@ -29,61 +29,37 @@ public class Main {
     }
 }
 
-interface figurable {
+interface Figure {
     double getPerimeter();
-
     double getArea();
+    String getType();
 }
 
-abstract class Figure implements figurable {
-    private double perimeter;
-    private double area;
-
-    public Figure() {
-
-    }
-
-    public double getPerimeter() {
-        return perimeter;
-    }
-
-    public double getArea() {
-        return area;
-    }
-
-    public String getType() {
-        return null;
-    }
-}
-
-class Circle extends Figure {
-    private double radius;
+class Circle implements Figure {
+    private final double radius;
 
     public Circle(double radius) {
         super();
         this.radius = radius;
     }
 
-    @Override
     public double getArea() {
-        return 3.14 * Math.pow(this.radius, 2);
+        return Math.PI * Math.pow(this.radius, 2);
     }
 
-    @Override
     public double getPerimeter() {
-        return 2 * 3.14 * this.radius;
+        return 2 * Math.PI * this.radius;
     }
 
-    @Override
     public String getType() {
         return this.getClass().toString();
     }
 }
 
-class Parallelogram extends Figure {
-    private double baseSide;
-    private double side;
-    private double height;
+class Parallelogram implements Figure {
+    private final double baseSide;
+    private final double side;
+    private final double height;
 
     public Parallelogram(double baseSide, double side, double height) {
         this.baseSide = baseSide;
@@ -91,42 +67,36 @@ class Parallelogram extends Figure {
         this.height = height;
     }
 
-    @Override
     public double getArea() {
         return this.baseSide * this.height;
     }
 
-    @Override
     public double getPerimeter() {
         return 2 * this.baseSide + 2 *  this.side;
     }
 
-    @Override
     public String getType() {
         return this.getClass().toString();
     }
 }
 
-class Rectangle extends Figure {
-    private double sideA;
-    private double sideB;
+class Rectangle implements Figure {
+    private final double sideA;
+    private final double sideB;
 
     public Rectangle(double sideA, double sideB) {
         this.sideA = sideA;
         this.sideB = sideB;
     }
 
-    @Override
     public double getArea() {
         return this.sideA * this.sideB;
     }
 
-    @Override
     public double getPerimeter() {
         return 2 * this.sideA + 2 * this.sideB;
     }
 
-    @Override
     public String getType() {
         return this.getClass().toString();
     }
