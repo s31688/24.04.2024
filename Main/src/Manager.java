@@ -1,4 +1,4 @@
-public class Manager extends Employee {
+public final class Manager extends Employee {
     public double bonus;
 
     public Manager(String firstName, String lastName, int birthdayYear, int hireDate, String companyName, double salary,
@@ -15,6 +15,6 @@ public class Manager extends Employee {
     @Override
     public String toString() {
         return this.getClass().getName() + " with lastName " + this.lastName + " and age " + super.getAge() +
-                " has salary " + this.getSalary();
+                " has salary " + this.salary;
     }
 }
